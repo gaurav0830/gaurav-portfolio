@@ -1,13 +1,7 @@
 // @ts-nocheck
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { sideBarLeftSocials, FooterLinks } from "../assets/lib/data";
-import { useLanguage } from "../context/language-context";
-import { useTheme } from "../context/theme-context";
-
-import Popup from "reactjs-popup";
-import { VscChromeClose } from "react-icons/vsc";
-const LazyServiceStatus = lazy(() => import("../components/ServiceStatus"));
+import { sideBarLeftSocials } from "../assets/lib/data";
 
 interface SocialLink {
   link: string;
@@ -18,79 +12,55 @@ interface SocialLink {
 }
 
 const Footer: React.FC = () => {
-  const { language } = useLanguage();
-  const { theme } = useTheme();
-
   return (
-    <footer className="bg-darkblue flex justify-around items-center gap-10 p-10 max-lg:flex-col max-lg:pb-48 relative z-[1]">
-      <div className="flex gap-10">
-        {FooterLinks.map((link, index) => (
-          <Popup
-            trigger={
-              <Link
-                to="#"
-                className="text-white text-2xl font-bold hover:text-orange"
-              >
-                {language === "DE" ? link.de : link.en}
-              </Link>
-            }
-            modal
-            key={index}
-          >
-            {(close: () => void) =>
-              (
-                <>
-                  <div
-                    className={`p-32 max-lg:p-16  rounded-3xl dark-shadow relative max-h-[80vh] overflow-y-auto ${
-                      theme === "dark" ? "bg-darkblue" : "bg-white"
-                    }`}
-                  >
-                    <button
-                      className="fixed top-0 right-0 bg-orange p-4 z-10 rounded-2xl m-4 hover:bg-lightblue transition-all duration-500 dark-shadow text-white"
-                      onClick={() => {
-                        close();
-                      }}
-                    >
-                      <VscChromeClose />
-                    </button>
-                    {link.data}
-                  </div>
-                </>
-              ) as React.ReactNode
-            }
-          </Popup>
-        ))}
+    <footer className="bg-darkblue text-white px-10 py-16 flex flex-col items-center gap-10 text-center">
+      {/* Top Section - Quick Links */}
+      <div className="flex flex-wrap justify-center gap-10 text-lg font-medium">
+        <Link to="/" className="hover:text-orange transition-colors">
+          Home
+        </Link>
+        <Link to="/projects" className="hover:text-orange transition-colors">
+          Projects
+        </Link>
+        <Link to="/about" className="hover:text-orange transition-colors">
+          About
+        </Link>
+        <Link to="/contact" className="hover:text-orange transition-colors">
+          Contact
+        </Link>
       </div>
-      <div className="socials flex gap-10 ">
+
+      {/* Middle Section - Social Icons */}
+      <div className="socials flex gap-8">
         {sideBarLeftSocials.map((social: SocialLink, index: number) => (
           <Link
             to={social.link}
-            className="block mb-2 "
             key={index}
             target="_blank"
             rel="noopener noreferrer"
-            aria-current={
-              social.altimgname === "true"
-                ? social.altimgname + " button"
-                : social.altimgname + " button"
-            }
+            aria-label={`${social.altimgname} button`}
+            className="hover:scale-110 transition-transform duration-300"
           >
             {typeof social.icon === "function" ? (
-              <social.icon className={`stroke-orange`} />
+              <social.icon className="stroke-orange w-8 h-8" />
             ) : (
               <img
                 src={social.icon}
                 alt={social.altimgname}
+                className="w-8 h-8"
                 style={{ stroke: social.iconcolor || "" }}
               />
             )}
           </Link>
         ))}
       </div>
-      <div>
-        <Suspense fallback={<div>Loading...</div>}>
-          <LazyServiceStatus />
-        </Suspense>
+
+      {/* Bottom Section - Copyright */}
+      <div className="text-sm opacity-80 mt-6">
+        <p>© {new Date().getFullYear()} Gaurav R. All rights reserved.</p>
+        <p className="mt-2">
+          Crafted with ❤️ using React, Tailwind, and modern web technologies.
+        </p>
       </div>
     </footer>
   );

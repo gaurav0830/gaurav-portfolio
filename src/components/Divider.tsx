@@ -15,10 +15,10 @@ interface DividerProps {
     | "middle-to-inner-right"
     | "middle-to-inner-left"
     | "middle";
-  color: string;
-  thickness: string;
+  color: string; // uses CSS var(--color)
+  thickness: string; // e.g. "2px"
   height: "small" | "middle" | "large" | "extraLarge";
-  dividerStyle: string;
+  dividerStyle: string; // e.g. "solid" | "dashed"
 }
 
 const Divider: React.FC<DividerProps> = ({
@@ -30,7 +30,7 @@ const Divider: React.FC<DividerProps> = ({
 }) => {
   const borderStyle = {
     borderColor: `var(--${color})`,
-    borderStyle: `${dividerStyle}`,
+    borderStyle: dividerStyle,
   };
 
   const heightStyle = heightStyles[height];
@@ -40,8 +40,9 @@ const Divider: React.FC<DividerProps> = ({
 
   return (
     <div style={directionStyle} className="relative">
+      {/* First Segment */}
       <div
-        className="flex justify-end mb-10 "
+        className="flex justify-end mb-10"
         style={{ height: heightStyle?.heights[0], ...spaceStyle }}
       >
         <div
@@ -52,8 +53,10 @@ const Divider: React.FC<DividerProps> = ({
             borderBottomWidth: thickness,
             width: widthStyle?.widths[0],
           }}
-        ></div>
+        />
       </div>
+
+      {/* Second Segment */}
       <div
         className="flex justify-end -mt-10"
         style={{ height: heightStyle?.heights[1] }}
@@ -65,7 +68,7 @@ const Divider: React.FC<DividerProps> = ({
             borderLeftWidth: thickness,
             width: widthStyle?.widths[1],
           }}
-        ></div>
+        />
       </div>
     </div>
   );

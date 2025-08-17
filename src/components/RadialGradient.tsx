@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "../context/theme-context";
 
 interface RadialGradientProps {
@@ -40,19 +39,16 @@ const RadialGradient: React.FC<RadialGradientProps> = ({
   }, []);
 
   const radialGradientStyle: React.CSSProperties = {
-    background: `radial-gradient(at ${mouseXpercentage}% ${mouseYpercentage}%, #ff6a3d, ${
+    background: `radial-gradient(at ${mouseXpercentage}% ${mouseYpercentage}%, #8a2be2, ${
       theme === "light" ? "#9daaf2" : "#0c1220"
     })`,
   };
 
   return (
-    <React.Fragment>
-      <div
-        // rotate-180 for mirrored effect
-        className={`radial-gradient-styling absolute ${position} left-0 h-full w-full -z-[1]   ${opacity} ${scale} ${overflow}`}
-        style={radialGradientStyle}
-      ></div>
-    </React.Fragment>
+    <div
+      className={`radial-gradient-styling absolute ${position} left-0 h-full w-full -z-[1] ${opacity} ${scale} ${overflow}`}
+      style={radialGradientStyle}
+    ></div>
   );
 };
 

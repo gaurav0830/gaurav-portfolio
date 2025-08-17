@@ -1,13 +1,10 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLanguage } from "../context/language-context";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function useQuoteAnimation(quoteElementSelector: string) {
-  const { language } = useLanguage();
-
   useEffect(() => {
     const h2Element = document.querySelector(quoteElementSelector);
 
@@ -16,8 +13,8 @@ export function useQuoteAnimation(quoteElementSelector: string) {
       h2Element.textContent = "";
 
       const h2Timeline = gsap.timeline();
-
       let isInsideWord = false;
+
       for (const char of h2Text) {
         if (char === " ") {
           const spaceSpan = document.createElement("span");
@@ -33,7 +30,6 @@ export function useQuoteAnimation(quoteElementSelector: string) {
           charSpan.textContent = char;
           charSpan.style.display = "inline";
           h2Timeline.from(charSpan, {
-            // y: 30,
             opacity: 0.2,
             duration: 0.6,
             ease: "power3.out",
@@ -47,7 +43,6 @@ export function useQuoteAnimation(quoteElementSelector: string) {
         start: "top bottom",
         end: "bottom center",
         scrub: true,
-
         onToggle: (self) => {
           if (self.isActive) {
             h2Timeline.play();
@@ -63,14 +58,15 @@ export function useQuoteAnimation(quoteElementSelector: string) {
           } else {
             h2Timeline.progress(self.progress);
           }
-          const scrollDirection = self.getVelocity() > 1 ? 1 : -1; // 1 für runter scrollen, -1 für hoch scrollen
+
+          const scrollDirection = self.getVelocity() > 1 ? 1 : -1;
           if (scrollDirection === 1) {
-            h2Timeline.play(); // Animation fortsetzen, wenn der Benutzer nach unten scrollt
+            h2Timeline.play();
           } else {
-            h2Timeline.pause(); // Animation stoppen, wenn der Benutzer nach oben scrollt
+            h2Timeline.pause();
           }
         },
       });
     }
-  }, [quoteElementSelector, language]);
+  }, [quoteElementSelector]);
 }

@@ -26,7 +26,6 @@ const Home: React.FC = () => {
         <header className="h-screen">
           <ScrollProgress
             position={"left"}
-            color={"orange"}
             height={10}
             smoothness={true}
           />
