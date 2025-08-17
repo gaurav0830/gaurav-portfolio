@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 08fe9ca (Remove unused React imports from Imprint and Privacy)
 const Imprint = () => {
   return (
     <article className="flex flex-col gap-6 max-w-[70vw]">
