@@ -39,16 +39,19 @@ const HeaderIntro: React.FC = () => {
 
       {/* ✅ Buttons always English */}
       <div className="button-container flex items-center justify-center mr-8 gap-10 mb-12 max-lg:flex-col max-lg:items-center">
-        {headerIntroData.buttons.map((button, index) => (
+        {headerIntroData.buttons.map((button) => (
           <Button
-            key={index}
+            key={button.name}
             label={button.label.en}
             iconSVG={button.icon}
-            link={`#${button.name.toLowerCase()}`}
             buttoncolor={button.color}
+            link={button.link}
+            target={button.isExternal ? "_blank" : undefined}
             onClick={() => {
-              setActiveSection(button.name);
-              setTimeOfLastClick(Date.now());
+              if (!button.isExternal) {
+                setActiveSection(button.name);
+                setTimeOfLastClick(Date.now());
+              }
             }}
           />
         ))}

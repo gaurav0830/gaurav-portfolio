@@ -13,6 +13,8 @@ interface ButtonProps {
   buttonhovercolor?: string;
   type?: "button" | "submit" | "reset";
   elementType?: "input" | "button";
+  target?: string; // <-- add this
+  isExternal?: boolean; // <-- optional flag for external links
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,6 +27,8 @@ const Button: React.FC<ButtonProps> = ({
   buttonhovercolor,
   type,
   elementType,
+  target,
+  isExternal = false,
 }) => {
   const commonProps = {
     onClick,
@@ -35,24 +39,29 @@ const Button: React.FC<ButtonProps> = ({
 
   if (elementType === "input") {
     return <input {...commonProps} value={value}></input>;
-  } else {
+  }
+
+  // If external link, render <a> instead of <Link>
+  if (isExternal && link) {
     return (
-      <Link to={link || ""} className="no-underline">
+      <a href={link} target={target} rel="noopener noreferrer">
         <button {...commonProps}>
-          {IconSVGComponent ? (
-            <IconSVGComponent className={"w-max h-10"} />
-          ) : (
-            <img
-              src={buttoncolor || ""}
-              alt={`${label}-icon`}
-              className={`bg-[${buttoncolor || ""}] w-16 `}
-            />
-          )}
+          {IconSVGComponent && <IconSVGComponent className="w-max h-10" />}
           {label}
         </button>
-      </Link>
+      </a>
     );
   }
+
+  // Internal routing
+  return (
+    <Link to={link || ""} className="no-underline">
+      <button {...commonProps}>
+        {IconSVGComponent && <IconSVGComponent className="w-max h-10" />}
+        {label}
+      </button>
+    </Link>
+  );
 };
 
 export default Button;

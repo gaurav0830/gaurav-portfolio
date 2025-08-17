@@ -29,7 +29,7 @@ import travelicon from "../../assets/icons/travel-icon.svg";
 import hardwareicon from "../../assets/icons/hardware-icon.svg";
 import expressiconwhite from "../../assets/icons/expressiconwhite.svg";
 import { GoHome, GoPerson, GoMail, GoStack, GoProject } from "react-icons/go";
-import { FiGithub, FiLink, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiGithub, FiLink, FiLinkedin, FiMail, FiFile } from "react-icons/fi";
 
 export const headerIntroData = {
   title: {
@@ -39,26 +39,27 @@ export const headerIntroData = {
   description: {
     en: "I’m Gaurav, a passionate full-stack developer with a strong foundation in modern web technologies. I specialize in building scalable, user-focused applications that transform ideas into impactful digital solutions.",
   },
-  buttons: [
+buttons: [
     {
-      name: "Contact",
-      label: {
-        en: "Contact me",
-      },
-      icon: FiMail,
+      name: "Resume",
+      label: { en: "My Resume" },
+      icon: FiFile,  // any icon you like
       color: "main-btn",
+      link: "https://drive.google.com/file/d/19p32IdvpSeAFWySFAhZzWXQqKrvXdWDY/view?usp=drive_link",  // place the file in `public` folder
+      isExternal: true,     // opens in new tab
     },
     {
       name: "Projects",
-      label: {
-        en: "My Projects",
-      },
+      label: { en: "My Projects" },
       icon: FiGithub,
       color: "secondary-btn",
+      link: "#projects",    // scroll to projects section
+      isExternal: false,
     },
   ],
   profilepicture: profilepicture,
 } as const;
+
 
 export const projectsData = [
   {

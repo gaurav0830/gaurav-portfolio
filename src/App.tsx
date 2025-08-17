@@ -4,17 +4,20 @@ import Home from "./pages/Home";
 import ActiveSectionContextProvider from "./context/active-section-context";
 import ThemeContextProvider from "./context/theme-context";
 import VisitTracker from "./components/VisitTracker";
+import Loader from "./components/Loader";
 
 function App() {
   return (
     <>
-      <VisitTracker />
+      {/* <VisitTracker /> */}
       <BrowserRouter>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Routes>
+            <Loader>
+              <Routes>
               <Route path="/" element={<Home />} />
             </Routes>
+            </Loader>
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </BrowserRouter>
