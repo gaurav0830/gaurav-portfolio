@@ -7,7 +7,6 @@ This is a personal portfolio website built with React, Tailwind CSS, and TypeScr
 
 ## Demo
 
-Insert gif or link to demo
 Check out my [Live Demo](https://gaurav-portfolio-m854.vercel.app/) of the portfolio.
 
 
@@ -73,4 +72,5 @@ Refer to .env-init for guidance.
 ## Support
 
 If you find this project useful or want to support Gaurav R, feel free to ⭐ this repository!
+
 
