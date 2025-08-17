@@ -30,8 +30,6 @@ import hardwareicon from "../../assets/icons/hardware-icon.svg";
 import expressiconwhite from "../../assets/icons/expressiconwhite.svg";
 import { GoHome, GoPerson, GoMail, GoStack, GoProject } from "react-icons/go";
 import { FiGithub, FiLink, FiLinkedin, FiMail } from "react-icons/fi";
-import Imprint from "../../components/Imprint";
-import Privacy from "../../components/Privacy";
 
 export const headerIntroData = {
   title: {
@@ -316,10 +314,7 @@ export const navLinks = [
   { en: "Contact", hash: "#contact", icon: GoMail },
 ] as const;
 
-export const FooterLinks = [
-  { en: "Imprint", hash: "#imprint", data: <Imprint /> },
-  { en: "Privacy", hash: "#privacy", data: <Privacy /> },
-] as const;
+
 
 export const sideBarRightMail = {
   link: "mailto:gauravr8402@gmail.com",
