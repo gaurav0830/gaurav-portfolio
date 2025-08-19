@@ -78,7 +78,7 @@ export const projectsData = [
       { name: "Canva", icon: canvaicon },
     ],
     image: aryadhurgaMockup,
-    // deploymenturl: "",
+    deploymenturl: "",
     githuburl: "https://github.com/gaurav0830/aryadhurga-cloudkitchen",
     githubicon: FiGithub,
     deploymenticon: FiLink,
