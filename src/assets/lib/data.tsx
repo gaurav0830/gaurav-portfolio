@@ -65,30 +65,30 @@ export const headerIntroData = {
 } as const;
 
 export const projectsData = [
-  {
-    title: "AryaDurga Cloud Kitchen",
-    description_EN:
-      "A full-stack food delivery web app featuring a catalog of 100+ food items with integrated cart management. Optimized order flow and form validations, reducing average order completion time from 5 minutes to 3 minutes for a seamless user experience.",
-    technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
-      { name: "JavaScript", icon: javascripticon },
-      { name: "PHP", icon: phpicon },
-      { name: "MYSql", icon: mysqlicon },
-      { name: "Canva", icon: canvaicon },
-    ],
-    image: aryadhurgaMockup,
-    deploymenturl: "",
-    githuburl: "https://github.com/gaurav0830/aryadhurga-cloudkitchen",
-    githubicon: FiGithub,
-    deploymenticon: FiLink,
-    colors: {
-      main: "main-btn",
-      second: "secondary-btn",
-      icon: "white",
-      projectcolor: "#70B9BE",
-    },
-  },
+  // {
+  //   title: "AryaDurga Cloud Kitchen",
+  //   description_EN:
+  //     "A full-stack food delivery web app featuring a catalog of 100+ food items with integrated cart management. Optimized order flow and form validations, reducing average order completion time from 5 minutes to 3 minutes for a seamless user experience.",
+  //   technologies: [
+  //     { name: "Html", icon: htmlicon },
+  //     { name: "CSS", icon: cssicon },
+  //     { name: "JavaScript", icon: javascripticon },
+  //     { name: "PHP", icon: phpicon },
+  //     { name: "MYSql", icon: mysqlicon },
+  //     { name: "Canva", icon: canvaicon },
+  //   ],
+  //   image: aryadhurgaMockup,
+  //   deploymenturl: "",
+  //   githuburl: "https://github.com/gaurav0830/aryadhurga-cloudkitchen",
+  //   githubicon: FiGithub,
+  //   deploymenticon: FiLink,
+  //   colors: {
+  //     main: "main-btn",
+  //     second: "secondary-btn",
+  //     icon: "white",
+  //     projectcolor: "#70B9BE",
+  //   },
+  // },
   {
     title: "Syncwear",
     description_EN:
