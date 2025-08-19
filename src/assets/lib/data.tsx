@@ -6,6 +6,7 @@ import cssicon from "../../assets/icons/cssicon.svg";
 import javascripticon from "../../assets/icons/javascripticon.svg";
 import typescripticon from "../../assets/icons/typescripticon.svg";
 import reacticon from "../../assets/icons/reacticon.svg";
+import threejsicon from "../../assets/icons/Threejsicons.svg";
 import nodejsicon from "../../assets/icons/nodejsicon.svg";
 import tailwindcssicon from "../../assets/icons/tailwindicon.svg";
 import Aiicon from "../../assets/icons/aiicons.svg";
@@ -16,13 +17,16 @@ import mysqlicon from "../../assets/icons/mysqlicons.svg";
 import phpicon from "../../assets/icons/phpicon.svg";
 import axiosicon from "../../assets/icons/axiosicon.svg";
 import rendericon from "../../assets/icons/rendericon.svg";
+import vercelicon from "../../assets/icons/vercelicons.svg";
 import jwticon from "../../assets/icons/jwticon.svg";
 import vscodeicon from "../../assets/icons/vscodeicon.svg";
 import postmanicon from "../../assets/icons/postman-icon.svg";
 import androidstudioicon from "../../assets/icons/androidstudioicon.svg";
-import tastyMockup from "../../assets/img/tasty_mockup.webp";
-import instorMockup from "../../assets/img/instor_mockup.webp";
-import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp";
+import aryadhurgaMockup from "../../assets/img/aryadhurga-screenshot.webp";
+import joshianaMockup from "../../assets/img/joshiana-screenshot.webp";
+import pananormic from "../../assets/img/pananormc-screenshot.png";
+import syncwearMockup from "../../assets/img/syncwear-screenshot.webp";
+import expensemockup from "../../assets/img/expense-screenshot.webp";
 import profilepicture from "../img/me2.webp";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
@@ -39,27 +43,26 @@ export const headerIntroData = {
   description: {
     en: "I’m Gaurav, a passionate full-stack developer with a strong foundation in modern web technologies. I specialize in building scalable, user-focused applications that transform ideas into impactful digital solutions.",
   },
-buttons: [
+  buttons: [
     {
       name: "Resume",
       label: { en: "My Resume" },
-      icon: FiFile,  // any icon you like
+      icon: FiFile, // any icon you like
       color: "main-btn",
-      link: "https://drive.google.com/file/d/19p32IdvpSeAFWySFAhZzWXQqKrvXdWDY/view?usp=drive_link",  // place the file in `public` folder
-      isExternal: true,     // opens in new tab
+      link: "https://drive.google.com/file/d/19p32IdvpSeAFWySFAhZzWXQqKrvXdWDY/view?usp=drive_link", // place the file in `public` folder
+      isExternal: true, // opens in new tab
     },
     {
       name: "Projects",
       label: { en: "My Projects" },
       icon: FiGithub,
       color: "secondary-btn",
-      link: "#projects",    // scroll to projects section
+      link: "#projects", // scroll to projects section
       isExternal: false,
     },
   ],
   profilepicture: profilepicture,
 } as const;
-
 
 export const projectsData = [
   {
@@ -74,9 +77,9 @@ export const projectsData = [
       { name: "MYSql", icon: mysqlicon },
       { name: "Canva", icon: canvaicon },
     ],
-    image: tastyMockup,
-    deploymenturl: "",
-    githuburl: "",
+    image: aryadhurgaMockup,
+    // deploymenturl: "",
+    githuburl: "https://github.com/gaurav0830/aryadhurga-cloudkitchen",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -98,10 +101,9 @@ export const projectsData = [
       { name: "MYSql", icon: mysqlicon },
       { name: "Figma", icon: figmaicon },
     ],
-    image: silentmoonMockup,
-    deploymenturl: "https://silentmoon-grpw.onrender.com/",
-    githuburl:
-      "https://github.com/gaurav0830/syncwear",
+    image: syncwearMockup,
+    deploymenturl: "https://syncwear.byethost24.com/smartwatch/",
+    githuburl: "https://github.com/gaurav0830/syncwear",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -123,9 +125,9 @@ export const projectsData = [
       { name: "PHP", icon: phpicon },
       { name: "MYSql", icon: mysqlicon },
     ],
-    image: instorMockup,
-    deploymenturl: "",
-    githuburl: "github.com/gaurav0830/joshiana-13.0",
+    image: joshianaMockup,
+    deploymenturl: "http://joshiana.byethost9.com/joshiana/",
+    githuburl: "https://github.com/gaurav0830/joshiana-13.0",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -135,32 +137,32 @@ export const projectsData = [
       projectcolor: "#E3964A",
     },
   },
-  {
-    title: "QPGS",
-    description_EN:
-      "A Question Paper Generation System built with the MERN stack to simplify and automate the process of creating exam papers. It provides an intuitive interface for educators to generate, manage, and organize question papers efficiently.",
-    technologies: [
-      { name: "React", icon: reacticon },
-      { name: "JWT & Bcrypt", icon: jwticon },
-      { name: "Axios", icon: axiosicon },
-      { name: "MongoDB", icon: mongodbicon },
-      { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Render", icon: rendericon },
-    ],
-    image: instorMockup,
-    deploymenturl: "",
-    githuburl: "https://github.com/gaurav0830/qbps",
-    githubicon: FiGithub,
-    deploymenticon: FiLink,
-    colors: {
-      main: "main-btn",
-      second: "secondary-btn",
-      icon: "white",
-      projectcolor: "#E3964A",
-    },
-  },
+  // {
+  //   title: "QPGS",
+  //   description_EN:
+  //     "A Question Paper Generation System built with the MERN stack to simplify and automate the process of creating exam papers. It provides an intuitive interface for educators to generate, manage, and organize question papers efficiently.",
+  //   technologies: [
+  //     { name: "React", icon: reacticon },
+  //     { name: "JWT & Bcrypt", icon: jwticon },
+  //     { name: "Axios", icon: axiosicon },
+  //     { name: "MongoDB", icon: mongodbicon },
+  //     { name: "Express", icon: expressiconwhite },
+  //     { name: "Node.js", icon: nodejsicon },
+  //     { name: "Figma", icon: figmaicon },
+  //     { name: "Render", icon: rendericon },
+  //   ],
+  //   image: instorMockup,
+  //   deploymenturl: "",
+  //   githuburl: "https://github.com/gaurav0830/qbps",
+  //   githubicon: FiGithub,
+  //   deploymenticon: FiLink,
+  //   colors: {
+  //     main: "main-btn",
+  //     second: "secondary-btn",
+  //     icon: "white",
+  //     projectcolor: "#E3964A",
+  //   },
+  // },
   {
     title: "StudyHive",
     description_EN:
@@ -172,14 +174,58 @@ export const projectsData = [
       { name: "MongoDB", icon: mongodbicon },
       { name: "Express", icon: expressiconwhite },
       { name: "Node.js", icon: nodejsicon },
-      { name: "Tailwind CSS", icon: tailwindcssicon},
-      { name: "Ollama AI", icon:Aiicon},
+      { name: "Tailwind CSS", icon: tailwindcssicon },
+      { name: "Ollama AI", icon: Aiicon },
       { name: "Figma", icon: figmaicon },
       { name: "Render", icon: rendericon },
     ],
-    image: instorMockup,
+    image: joshianaMockup,
     deploymenturl: "",
     githuburl: "https://github.com/gaurav0830/qbps",
+    githubicon: FiGithub,
+    deploymenticon: FiLink,
+    colors: {
+      main: "main-btn",
+      second: "secondary-btn",
+      icon: "white",
+      projectcolor: "#E3964A",
+    },
+  },
+  {
+    title: "Expense Tracker",
+    description_EN:
+      "The Expense Tracker is a modern web application designed to help users manage their personal finances effortlessly.Built with React for fast and dynamic UI and Tailwind CSS for sleek styling, the app provides a clean and responsive experience across all devices.",
+    technologies: [
+      { name: "React", icon: reacticon },
+      { name: "Axios", icon: axiosicon },
+      { name: "Tailwind CSS", icon: tailwindcssicon },
+      { name: "Figma", icon: figmaicon },
+      { name: "Vercel", icon: vercelicon },
+    ],
+    image: expensemockup,
+    deploymenturl: "https://expense-tracker-fwbx.vercel.app/",
+    githuburl: "https://github.com/gaurav0830/ExpenseTracker",
+    githubicon: FiGithub,
+    deploymenticon: FiLink,
+    colors: {
+      main: "main-btn",
+      second: "secondary-btn",
+      icon: "white",
+      projectcolor: "#E3964A",
+    },
+  },
+    {
+    title: "Panoramic 360° Viewer",
+    description_EN:
+      "A small project built with React and Three.js that allows users to explore a 360-degree panoramic view directly in the browser. Deployed on Vercel for quick access.",
+    technologies: [
+      { name: "React", icon: reacticon },
+      { name: "Three js", icon: threejsicon },
+      { name: "Vercel", icon: vercelicon },
+    ],
+    image: pananormic,
+    deploymenturl: "https://pananormic-360deg.vercel.app/",
+    githuburl: "https://github.com/gaurav0830/pananormic-360deg",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -315,8 +361,6 @@ export const navLinks = [
   { en: "Contact", hash: "#contact", icon: GoMail },
 ] as const;
 
-
-
 export const sideBarRightMail = {
   link: "mailto:gauravr8402@gmail.com",
   text: "gauravr8402@gmail.com",
@@ -352,27 +396,27 @@ export const quotesData = [
 
 export const aboutMeData = {
   title_EN: "About Me",
-description_EN: "A few snippets about my journey",
-paragraphs_EN: [
-  {
-    title: "Passion for Full-Stack Development",
-    description:
-      "As an MCA graduate with a strong foundation in programming, databases, and the software development life cycle, I thrive on building full-stack applications that solve real-world problems. My expertise spans React, Node.js, MongoDB, and modern frameworks that bring ideas to life.",
-    icon: hardwareicon,
-  },
-  {
-    title: "Hands-On Project Experience",
-    description:
-      "From developing an end-to-end food delivery platform to building a cloud-based study material organizer, I have gained practical experience in designing scalable applications. I enjoy optimizing user flows, implementing secure authentication, and creating seamless digital solutions.",
-    icon: caricon,
-  },
-  {
-    title: "Driven to Learn and Grow",
-    description:
-      "Curiosity drives me to constantly learn new technologies and refine my problem-solving skills. Whether collaborating in team environments or exploring innovative ideas, I aim to create impactful digital experiences and grow as a well-rounded IT professional.",
-    icon: travelicon,
-  },
-],
+  description_EN: "A few snippets about my journey",
+  paragraphs_EN: [
+    {
+      title: "Passion for Full-Stack Development",
+      description:
+        "As an MCA graduate with a strong foundation in programming, databases, and the software development life cycle, I thrive on building full-stack applications that solve real-world problems. My expertise spans React, Node.js, MongoDB, and modern frameworks that bring ideas to life.",
+      icon: hardwareicon,
+    },
+    {
+      title: "Hands-On Project Experience",
+      description:
+        "From developing an end-to-end food delivery platform to building a cloud-based study material organizer, I have gained practical experience in designing scalable applications. I enjoy optimizing user flows, implementing secure authentication, and creating seamless digital solutions.",
+      icon: caricon,
+    },
+    {
+      title: "Driven to Learn and Grow",
+      description:
+        "Curiosity drives me to constantly learn new technologies and refine my problem-solving skills. Whether collaborating in team environments or exploring innovative ideas, I aim to create impactful digital experiences and grow as a well-rounded IT professional.",
+      icon: travelicon,
+    },
+  ],
 };
 
 export const contactData = {
@@ -441,14 +485,13 @@ export const contactData = {
     icon: "white",
   },
   privacyOptIn: {
-  checkbox: {
-    en: "I consent to the use of my personal data (name and email address) solely for the purpose of responding to my inquiry.",
+    checkbox: {
+      en: "I consent to the use of my personal data (name and email address) solely for the purpose of responding to my inquiry.",
+    },
+    description: {
+      en: "By submitting this form, you confirm that you have read and agree to the Privacy Policy.",
+    },
   },
-  description: {
-    en: "By submitting this form, you confirm that you have read and agree to the Privacy Policy.",
-  },
-},
-
 } as const;
 
 export const toastMessages = {
