@@ -1,79 +1,70 @@
-// src/components/VisitTracker.tsx
 import { useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const VISIT_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_VISIT_TEMPLATE_ID;
+
 export default function VisitTracker() {
   useEffect(() => {
-    const visits = JSON.parse(localStorage.getItem("visitData") || "{}");
+    console.log("👀 VisitTracker mounted");
 
+    // Load visit data or initialize
+    const data = JSON.parse(localStorage.getItem("visitData") || "{}");
     const now = new Date();
-    const today = now.toISOString().split("T")[0]; // YYYY-MM-DD
+    const week = `${now.getFullYear()}-W${Math.ceil(now.getDate() / 7)}`;
+    const month = `${now.getFullYear()}-${now.getMonth() + 1}`;
 
-    // Initialize if empty
-    if (!visits.total) visits.total = 0;
-    if (!visits.daily) visits.daily = {};
-    if (!visits.weekly) visits.weekly = {};
-    if (!visits.monthly) visits.monthly = {};
+    // Update counts
+    data.total = (data.total || 0) + 1;
+    data.weekly = { ...(data.weekly || {}), [week]: (data.weekly?.[week] || 0) + 1 };
+    data.monthly = { ...(data.monthly || {}), [month]: (data.monthly?.[month] || 0) + 1 };
 
-    // Increment counts
-    visits.total += 1;
-    visits.daily[today] = (visits.daily[today] || 0) + 1;
+    localStorage.setItem("visitData", JSON.stringify(data));
+    console.log("📊 Updated visit data:", data);
 
-    const week = getWeekNumber(now);
-    visits.weekly[week] = (visits.weekly[week] || 0) + 1;
+    // Prepare details
+    const page = window.location.pathname;
+    const browser = navigator.userAgent;
+    const date = now.toLocaleString();
+    const visitorType = "Returning User"; // (could be improved with cookies/IP later)
 
-    const month = now.getMonth() + 1; // 1-12
-    visits.monthly[month] = (visits.monthly[month] || 0) + 1;
-
-    localStorage.setItem("visitData", JSON.stringify(visits));
-
-    // Send email on first visit or weekly/monthly threshold
-    const lastSent = localStorage.getItem("lastEmailSent") || "";
-    if (!lastSent) {
-      sendEmail(visits, "New Visitor");
-      localStorage.setItem("lastEmailSent", today);
-    } else {
-      // Check if new week or month
-      const lastSentDate = new Date(lastSent);
-      if (week !== getWeekNumber(lastSentDate)) {
-        sendEmail(visits, "Weekly Summary");
-        localStorage.setItem("lastEmailSent", today);
-      } else if (month !== lastSentDate.getMonth() + 1) {
-        sendEmail(visits, "Monthly Summary");
-        localStorage.setItem("lastEmailSent", today);
-      }
+    // Prevent duplicate send in same page-load
+    if (sessionStorage.getItem("emailSent") === date) {
+      console.log("⏭️ Skipping duplicate email (already sent this visit)");
+      return;
     }
+    sessionStorage.setItem("emailSent", date);
+
+    // Send email
+    console.log("📩 Sending visit email with data:", {
+      visitorType,
+      total: data.total,
+      weekly: data.weekly[week],
+      monthly: data.monthly[month],
+      page,
+      browser,
+      date,
+    });
+
+    emailjs.send(
+      SERVICE_ID,
+      VISIT_TEMPLATE_ID,
+      {
+        visitorType,
+        userTotalVisits: data.total,
+        userWeeklyVisits: data.weekly[week],
+        userMonthlyVisits: data.monthly[month],
+        page,
+        browser,
+        date,
+      },
+      PUBLIC_KEY
+    )
+    .then(() => console.log("✅ Email sent successfully"))
+    .catch((err) => console.error("❌ Email send error:", err));
+
   }, []);
-
-  function getWeekNumber(d: Date) {
-    const oneJan = new Date(d.getFullYear(), 0, 1);
-    const numberOfDays = Math.floor(
-      (d.getTime() - oneJan.getTime()) / (24 * 60 * 60 * 1000)
-    );
-    return Math.ceil((d.getDay() + 1 + numberOfDays) / 7);
-  }
-
-  const sendEmail = async (visits: any, visitorType: string) => {
-    try {
-      await emailjs.send(
-        "service_rj7sdwk",
-        "template_q8nsdso",
-        {
-          visitorType,
-          totalVisits: visits.total,
-          weeklyVisits: visits.weekly[getWeekNumber(new Date())],
-          monthlyVisits: visits.monthly[new Date().getMonth() + 1],
-          page: window.location.href,
-          browser: navigator.userAgent,
-          date: new Date().toLocaleString(),
-        },
-        "uEaVScKQoflFYJoC8"
-      );
-      console.log("Email sent!");
-    } catch (error) {
-      console.error("Email send error:", error);
-    }
-  };
 
   return null;
 }
