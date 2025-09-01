@@ -5,6 +5,7 @@ import ActiveSectionContextProvider from "./context/active-section-context";
 import ThemeContextProvider from "./context/theme-context";
 import VisitTracker from "./components/VisitTracker";
 import Loader from "./components/Loader";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </BrowserRouter>
+      <Analytics /> 
     </>
   );
 }
