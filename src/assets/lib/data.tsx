@@ -150,7 +150,7 @@ export const projectsData = [
       { name: "Render", icon: rendericon },
     ],
     image: studyhive,
-    // deploymenturl: "https://joshiana13.byethost7.com/joshiana/",
+    deploymenturl: "",
     githuburl: "https://github.com/gaurav0830/StudyHive-Study-Material-organizer-using-AI",
     githubicon: FiGithub,
     deploymenticon: FiLink,
