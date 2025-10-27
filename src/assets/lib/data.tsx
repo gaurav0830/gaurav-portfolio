@@ -2,6 +2,7 @@ import adobexdicon from "../../assets/icons/adobexdicon.svg";
 import canvaicon from "../../assets/icons/canvaicon.svg";
 import figmaicon from "../../assets/icons/figmaicon.svg";
 import htmlicon from "../../assets/icons/htmlicon.svg";
+import netlifyicon from "../../assets/icons/netlifyicon.svg"
 import cssicon from "../../assets/icons/cssicon.svg";
 import javascripticon from "../../assets/icons/javascripticon.svg";
 import typescripticon from "../../assets/icons/typescripticon.svg";
@@ -20,9 +21,11 @@ import jwticon from "../../assets/icons/jwticon.svg";
 import vscodeicon from "../../assets/icons/vscodeicon.svg";
 import postmanicon from "../../assets/icons/postman-icon.svg";
 import androidstudioicon from "../../assets/icons/androidstudioicon.svg";
-import tastyMockup from "../../assets/img/tasty_mockup.webp";
-import instorMockup from "../../assets/img/instor_mockup.webp";
-import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp";
+import aryadhurgacloudk from "../../assets/img/aryadhurgacloudk.webp";
+import joshiana from "../../assets/img/joshiana-13.0.webp";
+import studyhive from "../../assets/img/studyhive.png";
+import indiaDashboard from "../../assets/img/indiaDashboard.png";
+import churchWebsite from "../../assets/img/church-website.jpeg"
 import profilepicture from "../img/me2.webp";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
@@ -45,7 +48,7 @@ buttons: [
       label: { en: "My Resume" },
       icon: FiFile,  // any icon you like
       color: "main-btn",
-      link: "https://drive.google.com/file/d/19p32IdvpSeAFWySFAhZzWXQqKrvXdWDY/view?usp=drive_link",  // place the file in `public` folder
+      link: "https://drive.google.com/file/d/1ka5yhyWrxem81SFT7wHgCEuAX4lEMoFo/view?usp=sharing",  // place the file in `public` folder
       isExternal: true,     // opens in new tab
     },
     {
@@ -74,9 +77,9 @@ export const projectsData = [
       { name: "MYSql", icon: mysqlicon },
       { name: "Canva", icon: canvaicon },
     ],
-    image: tastyMockup,
-    deploymenturl: "",
-    githuburl: "",
+    image: aryadhurgacloudk,
+    deploymenturl: "https://aryadhurgacloudk.byethost7.com/AryaDhurga/",
+    githuburl: "https://github.com/gaurav0830/aryadhurga-cloudkitchen",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -84,31 +87,6 @@ export const projectsData = [
       second: "secondary-btn",
       icon: "white",
       projectcolor: "#70B9BE",
-    },
-  },
-  {
-    title: "Syncwear",
-    description_EN:
-      "A smartwatch e-commerce website that allows customers to browse and purchase watches online. It includes an admin dashboard with features to add, update, and delete products, enabling efficient inventory and order management.",
-    technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
-      { name: "JavaScript", icon: javascripticon },
-      { name: "PHP", icon: phpicon },
-      { name: "MYSql", icon: mysqlicon },
-      { name: "Figma", icon: figmaicon },
-    ],
-    image: silentmoonMockup,
-    deploymenturl: "https://silentmoon-grpw.onrender.com/",
-    githuburl:
-      "https://github.com/gaurav0830/syncwear",
-    githubicon: FiGithub,
-    deploymenticon: FiLink,
-    colors: {
-      main: "main-btn",
-      second: "secondary-btn",
-      icon: "white",
-      projectcolor: "#FFD5BD",
     },
   },
   {
@@ -123,8 +101,8 @@ export const projectsData = [
       { name: "PHP", icon: phpicon },
       { name: "MYSql", icon: mysqlicon },
     ],
-    image: instorMockup,
-    deploymenturl: "",
+    image: joshiana,
+    deploymenturl: "https://joshiana13.byethost7.com/joshiana/",
     githuburl: "github.com/gaurav0830/joshiana-13.0",
     githubicon: FiGithub,
     deploymenticon: FiLink,
@@ -136,22 +114,16 @@ export const projectsData = [
     },
   },
   {
-    title: "QPGS",
+    title: "India Vaccination Map Dashboard",
     description_EN:
-      "A Question Paper Generation System built with the MERN stack to simplify and automate the process of creating exam papers. It provides an intuitive interface for educators to generate, manage, and organize question papers efficiently.",
+      "A React-based interactive dashboard that visualizes COVID-19 vaccination data for all Indian states. This dashboard provides an intuitive, state-wise view of vaccination progress using a gradient color-coded map, tooltips, and responsive charts.",
     technologies: [
       { name: "React", icon: reacticon },
-      { name: "JWT & Bcrypt", icon: jwticon },
-      { name: "Axios", icon: axiosicon },
-      { name: "MongoDB", icon: mongodbicon },
-      { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Render", icon: rendericon },
+      { name: "Tailwind CSS", icon: tailwindcssicon},
     ],
-    image: instorMockup,
-    deploymenturl: "",
-    githuburl: "https://github.com/gaurav0830/qbps",
+    image: indiaDashboard,
+    deploymenturl: "https://india-vaccination-dash.vercel.app/",
+    githuburl: "https://github.com/gaurav0830/IndiaVaccinationDash?tab=readme-ov-file-",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -177,9 +149,32 @@ export const projectsData = [
       { name: "Figma", icon: figmaicon },
       { name: "Render", icon: rendericon },
     ],
-    image: instorMockup,
-    deploymenturl: "",
-    githuburl: "https://github.com/gaurav0830/qbps",
+    image: studyhive,
+    // deploymenturl: "https://joshiana13.byethost7.com/joshiana/",
+    githuburl: "https://github.com/gaurav0830/StudyHive-Study-Material-organizer-using-AI",
+    githubicon: FiGithub,
+    deploymenticon: FiLink,
+    colors: {
+      main: "main-btn",
+      second: "secondary-btn",
+      icon: "white",
+      projectcolor: "#E3964A",
+    },
+  },
+  {
+    title: "church-website",
+    description_EN:
+      "A responsive and animated church website built using HTML, CSS, JavaScript, and GSAP. It showcases church details and events with smooth scroll-based animations and is deployed on Netlify.",
+    technologies: [
+      { name: "HTML", icon: htmlicon },
+      { name: "CSS", icon: cssicon },
+      { name: "JavaScript", icon: javascripticon },
+      { name: "Figma", icon: figmaicon },
+      { name: "Netlify", icon: netlifyicon },
+    ],
+    image: churchWebsite,
+    deploymenturl: "https://github.com/gaurav0830/church-website",
+    githuburl: "https://github.com/gaurav0830/church-website",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -270,12 +265,6 @@ export const skillsDataDesign = [
     skillsTitle: "Design",
     skills: [
       { title: "Figma", hash: "#Figma", icon: figmaicon, color: "#F24E1E" },
-      {
-        title: "Adobe XD",
-        hash: "#Adobe XD",
-        icon: adobexdicon,
-        color: "#FF61F6",
-      },
       { title: "Canva", hash: "#Canva", icon: canvaicon, color: "#00C4CC" },
     ],
   },
