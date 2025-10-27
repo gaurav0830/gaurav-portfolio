@@ -1,4 +1,4 @@
-import adobexdicon from "../../assets/icons/adobexdicon.svg";
+// import adobexdicon from "../../assets/icons/adobexdicon.svg";
 import canvaicon from "../../assets/icons/canvaicon.svg";
 import figmaicon from "../../assets/icons/figmaicon.svg";
 import htmlicon from "../../assets/icons/htmlicon.svg";
